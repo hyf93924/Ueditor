@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	</head>
+	<body>
+		<form action="form.php" method="post">
+			<textarea id="myEditor" name="myEditor"></textarea>
+			<input type="submit" value="submit" />
+			<input type="button" value="获取编辑器内容Ajax" onclick="show()" />
+			<input type="button" value="获取编辑器纯文本" onclick="showTxt()" />
+		</form>
+		<!--引入编辑器文件-->
+		<script type="text/javascript" src="../ueditor/editor_config.js"></script>
+		<script type="text/javascript" src="../ueditor/editor_all.js"></script>
+		
+		<script type="text/javascript">
+		myed = new UE.ui.Editor({initialFrameWidth:750 ,initialContent:'欢迎使用ueditor编辑器!' ,toolbars:[
+            ['fullscreen', 'source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch','autotypeset','blockquote', 'pasteplain']
+                ]});   //渲染,参数就是配置选项
+		myed.render('myEditor');
+
+		function show(){
+			alert(myed.getContent());
+		}
+
+		function showTxt(){
+			alert(myed.getPlainTxt());
+		}
+		</script>
+		
+
+	</body>
+</html>
